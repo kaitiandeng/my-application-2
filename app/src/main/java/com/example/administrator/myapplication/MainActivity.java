@@ -11,11 +11,10 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    Student student;
+
     RecyclerView mRecyclerView;
     Adapter mAdapter;
-    List<String>mstudentname;
-    List<String>mstudentnumber;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,21 +29,5 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    protected void initData()
-       {
-
-                student = new Student();
-
-           student.add();
-
-                mstudentnumber = new ArrayList<>();
-                mstudentname = new ArrayList<>();
-
-                 for(int i = 0;i<student.studentnumber.size();i++) {
-                         mstudentname.add(student.studentname.get(i));
-                         mstudentnumber.add(student.studentnumber.get(i));
-                     }
-             }
-
 
 }
