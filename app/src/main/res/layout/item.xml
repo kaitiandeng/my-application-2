@@ -18,4 +18,5 @@
         android:layout_height="wrap_content"
         android:id="@+id/tv_studentnumber"
         android:textSize="20sp"/>
+
 </LinearLayout>

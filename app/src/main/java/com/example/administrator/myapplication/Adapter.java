@@ -9,14 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
         List<String> mstudentname;
         List<String>mstudentnumber;
-
+        Student student;
 
         @Override
         //绑定item的xml布局
@@ -41,6 +41,22 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         public int getItemCount() {
             return mstudentname.size();
         }
+
+    protected void initData()
+    {
+
+        student = new Student();
+
+        student.add();
+
+        mstudentnumber = new ArrayList<>();
+        mstudentname = new ArrayList<>();
+
+        for(int i = 0;i<student.studentnumber.size();i++) {
+            mstudentname.add(student.studentname.get(i));
+            mstudentnumber.add(student.studentnumber.get(i));
+        }
+    }
 
         //设置一些属性
         class MyViewHolder extends RecyclerView.ViewHolder{
