@@ -12,20 +12,28 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
 
+
+
     RecyclerView mRecyclerView;
     Adapter mAdapter;
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        mRecyclerView.setAdapter(mAdapter=new Adapter());
+        mAdapter=new Adapter();
+
+        mAdapter.initData();
+
+        mRecyclerView.setAdapter(mAdapter);
 
 
     }

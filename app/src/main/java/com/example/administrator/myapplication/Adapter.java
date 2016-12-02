@@ -1,5 +1,6 @@
 package com.example.administrator.myapplication;
 
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 
 /**
@@ -11,40 +12,44 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
 
 public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
-        List<String> mstudentname;
-        List<String>mstudentnumber;
-        Student student;
-
-        @Override
-        //绑定item的xml布局
-        public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-            return new MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item,parent,false));
-        }
+    List<String> mstudentname;
+    List<String>mstudentnumber;
+    Student student;
 
 
-        @Override
-        //将数据绑定到item里面的TextView
-        public void onBindViewHolder(MyViewHolder holder, int position) {
+    @Override
+    //绑定item的xml布局
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-            holder.tv_studentname.setText(mstudentname.get(position));
+        return new MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item,parent,false));
+    }
 
-            holder.tv_studentnumber.setText(mstudentnumber.get(position));
 
-        }
+    @Override
+    //将数据绑定到item里面的TextView
+    public void onBindViewHolder(MyViewHolder holder, int position) {
 
-        @Override
-        //复制item？
-        public int getItemCount() {
-            return mstudentname.size();
-        }
+        holder.tv_studentname.setText(mstudentname.get(position));
 
-    protected void initData()
+        holder.tv_studentnumber.setText(mstudentnumber.get(position));
+
+    }
+
+    @Override
+    //复制item？
+    public int getItemCount() {
+        return mstudentname.size();
+    }
+
+
+
+    public  void initData()
     {
-
         student = new Student();
 
         student.add();
@@ -58,18 +63,20 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         }
     }
 
-        //设置一些属性
-        class MyViewHolder extends RecyclerView.ViewHolder{
-            TextView tv_studentnumber;
-            TextView tv_studentname;
 
-            public MyViewHolder(View itemView) {
 
-                super(itemView);
+    //设置一些属性
+    class MyViewHolder extends RecyclerView.ViewHolder{
+        TextView tv_studentnumber;
+        TextView tv_studentname;
 
-                tv_studentnumber = (TextView) itemView.findViewById(R.id.tv_studentnumber);
-                tv_studentname= (TextView) itemView.findViewById(R.id.tv_studentname);
+        public MyViewHolder(View itemView) {
 
-            }
+            super(itemView);
+
+            tv_studentnumber = (TextView) itemView.findViewById(R.id.tv_studentnumber);
+            tv_studentname= (TextView) itemView.findViewById(R.id.tv_studentname);
+
         }
     }
+}
